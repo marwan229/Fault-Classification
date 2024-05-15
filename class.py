@@ -36,10 +36,9 @@ phase_a_current = st.number_input("Phase A Current (A)", min_value=0.0)
 phase_b_current = st.number_input("Phase B Current (A)", min_value=0.0)
 phase_c_current = st.number_input("Phase C Current (A)", min_value=0.0)
 
-# Combine user input into a list or NumPy array
-current_data = [phase_a_current, phase_b_current, phase_c_current]
+
 
 # Make prediction when the button is clicked
 if st.button("Classify Fault"):
-  predicted_fault = predict_fault(current_data)
+  predicted_fault = predict_fault(phase_a_current, phase_b_current, phase_c_current)
   st.write(f"Predicted Fault Type: {predicted_fault}")
